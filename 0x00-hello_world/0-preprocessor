@@ -1,0 +1,15 @@
+FILE="$1"
+
+if [[ -z "$CFILE" ]]; then
+  echo "Error: Please provide a C file name as an argument."
+  exit 1
+fi
+
+gcc -E -o c "$CFILE"
+
+if [[ $? -eq 0 ]]; then
+  echo "Preprocessed $CFILE and saved output to c"
+else
+  echo "Error: Preprocessing failed!"
+  exit 1
+fi
